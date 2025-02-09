@@ -43,3 +43,6 @@ export default function App() {
     </div>
   );
 }
+
+const API_URL = process.env.REACT_APP_API_URL || "https://dalcom-backend.onrender.com";
+console.log("API URL:", API_URL);  // ✅ 콘솔에서 확인하기 위해 API URL 출력하기
