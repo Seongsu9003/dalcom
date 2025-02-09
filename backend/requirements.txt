@@ -2,5 +2,3 @@ fastapi
 uvicorn
 openai
 pydantic
-
-# FastAPI를 실행하려면 위 패키지를 설치해야 함.
