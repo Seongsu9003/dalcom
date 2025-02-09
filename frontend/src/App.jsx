@@ -6,8 +6,9 @@ export default function App() {
   const [choices, setChoices] = useState([]);
   const [selectedChoice, setSelectedChoice] = useState("");
 
-  const API_URL = process.env.REACT_APP_API_URL || "https://dalcom-backend.onrender.com"; // ✅ 실제 Render API URL 넣기!
-
+  const API_URL = "https://dalcom-backend.onrender.com"; // ✅ 강제 설정
+  console.log("API URL:", API_URL); // ✅ 콘솔에서 확인 가능해야 함!
+  
   const fetchStory = async (userChoice) => {
     console.log("fetchStory called with choice:", userChoice); // ✅ 함수 실행 확인
     console.log("API URL:", API_URL); // ✅ API URL 확인
