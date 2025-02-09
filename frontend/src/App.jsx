@@ -9,16 +9,19 @@ export default function App() {
   const API_URL = process.env.REACT_APP_API_URL || "https://dalcom-backend.onrender.com"; // ✅ 실제 Render API URL 넣기!
 
   const fetchStory = async (userChoice) => {
+    console.log("fetchStory called with choice:", userChoice); // ✅ 함수 실행 확인
+    console.log("API URL:", API_URL); // ✅ API URL 확인
+
     try {
-      const response = await axios.post(`${API_URL}/story`, {  // ✅ API_URL을 사용하여 자동으로 백엔드 URL 적용!
-        choice: userChoice,
-      });
-      setStory(response.data.story);
-      setChoices(response.data.choices);
+        const response = await axios.post(`${API_URL}/story`, { choice: userChoice });
+        console.log("API Response:", response.data); // ✅ 응답 데이터 확인
+        setStory(response.data.story);
+        setChoices(response.data.choices);
     } catch (error) {
-      console.error("Error fetching story:", error);
+        console.error("Error fetching story:", error);
     }
-  };
+};
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
@@ -29,14 +32,15 @@ export default function App() {
       <div className="mt-4">
         {choices.map((choice, index) => (
           <button
-            key={index}
-            className="block px-4 py-2 bg-blue-500 text-white rounded mt-2 hover:bg-blue-700"
-            onClick={() => {
-              setSelectedChoice(choice);
-              fetchStory(choice);
-            }}
+              key={index}
+              className="block px-4 py-2 bg-blue-500 text-white rounded mt-2 hover:bg-blue-700"
+              onClick={() => {
+                  console.log("Button clicked:", choice); // ✅ 버튼 클릭 로그 확인
+                  setSelectedChoice(choice);
+                  fetchStory(choice);
+              }}
           >
-            {choice}
+              {choice}
           </button>
         ))}
       </div>
