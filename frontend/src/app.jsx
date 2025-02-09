@@ -6,9 +6,11 @@ export default function App() {
   const [choices, setChoices] = useState([]);
   const [selectedChoice, setSelectedChoice] = useState("");
 
+  const API_URL = process.env.REACT_APP_API_URL || "https://dalcom-backend.onrender.com"; // ✅ 실제 Render API URL 넣기!
+
   const fetchStory = async (userChoice) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/story", {  // 🔥 FastAPI API 주소
+      const response = await axios.post(`${API_URL}/story`, {  // ✅ API_URL을 사용하여 자동으로 백엔드 URL 적용!
         choice: userChoice,
       });
       setStory(response.data.story);
