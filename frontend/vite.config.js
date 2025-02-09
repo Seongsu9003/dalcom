@@ -3,10 +3,12 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: "./", // ✅ 상대 경로로 설정하여 Vercel에서 올바르게 로드되도록 함
   build: {
-    outDir: 'dist', // ✅ Vite가 빌드 결과를 dist 폴더에 저장
+    outDir: 'dist',
   },
   server: {
-    port: 5173, // ✅ 로컬 개발 시 기본 포트 설정
-  }
+    port: 5173,
+  },
+  publicDir: 'public',
 });
