@@ -4,3 +4,4 @@ openai
 pydantic
 langchain
 langchain_openai
+Pillow
